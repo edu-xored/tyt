@@ -104,7 +104,19 @@ func installAPI(db *buntdb.DB) {
 }
 
 func staticContent() {
+	// public content
 	iris.Static("/public", "./public/", 1)
+
+	iris.Get("/login.html", func(ctx *iris.Context) {
+		ctx.ServeFile("./login.html", false)
+	})
+
+	iris.Get("/docs", func(ctx *iris.Context) {
+		ctx.ServeFile("./docs/index.html", false)
+	})
+	iris.Get("/docs/index.html", func(ctx *iris.Context) {
+		ctx.ServeFile("./docs/index.html", false)
+	})
 
 	index := func(ctx *iris.Context) {
 		// TODO better approach to authorize
@@ -115,10 +127,6 @@ func staticContent() {
 		}
 		ctx.ServeFile("./index.html", false)
 	}
-
-	iris.Get("/login.html", func(ctx *iris.Context) {
-		ctx.ServeFile("./login.html", false)
-	})
 
 	iris.Get("/", index)
 	iris.Get("/index.html", index)

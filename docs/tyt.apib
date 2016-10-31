@@ -1,0 +1,113 @@
+FORMAT: 1A
+
+# Track Your Time
+Easy API to track events.
+
+## Group Authentication
+
+# POST /api/login
+Login with basic auth.
++ Response 200 (application/json)
+
+# POST /api/logout
+Close session.
++ Response 200
+
+# GET /api/token
+Verifies whether auth token is still valid.
++ Response 200
+
+## Group Users
+
+API to manage user resources.
+
+## User [/api/user/{id}]
+
+User entity properties:
++ id - (string) UUID
++ name - (string) full user name
++ login - (string) short login
++ avatar_url - (string) URL to avatar image
++ role - (string) user role (admin, employee)
++ created_at - timestamp when record is created
++ updated_at - timestamp when record is updated
++ created_by - UUID of creator
++ updated_by - UUID of last user who modifies the record
+
+### Retreive user by id [GET]
++ Response 200 (application/json)
+
+### Update user [PUT]
++ Response 200 (application/json)
+
+### Delete user [DELETE]
++ Response 204
+
+# GET /api/users
+Retreive all users.
++ Response 200 (application/json)
+
+# GET /api/me
+Retreive info about currently authenticated user.
++ Response 200 (application/json)
+
+
+## Group Teams
+
+API to manage team resources.
+
+## Team [/api/team/{id}]
+
+Team entity properties:
++ id - UUID of team record
++ name - (string) team name
++ avatar_url - (string) URL to avatar image
++ description - (string) additional notes
++ created_at - timestamp when record is created
++ updated_at - timestamp when record is updated
++ created_by - UUID of creator
++ updated_ny - UUID of last user who modifies the record
++ members - array of user records
+
+### Retreive team by id [GET]
++ Response 200 (application/json)
+
+### Update team [PUT]
++ Response 200 (application/json)
+
+### Delete team [DELETE]
++ Response 204
+
+# POST /api/team/{id}/members
+Add/remove member(s) of specified team.
++ Response 200 (application/json)
+
+## Teams Collection [/api/teams]
+
+### Retreive all teams [GET]
++ Response 200 (application/json)
+
+#### Create new team [POST]
++ Response 201 (application/json)
+
+# DELETE /api/events/{id}
+Delete specified event.
++ Response 204 (application/json)
+
+## Group Avatars
+
+# GET /api/avatar/{user_id}
+Get avatar image for specified user.
++ Response 200 (image/jpg)
+
+# POST /api/avatar
+Uploads avatar image to server.
++ Response 201
+
+# GET /api/myavatar
+Get avatar of current user.
++ Response 200 (image/jpg)
+
+# POST /api/myavatar
+Change avatar of current user.
++ Response 200
