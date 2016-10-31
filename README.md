@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/edu-xored/tyt.svg?branch=master)](https://travis-ci.org/edu-xored/tyt)
+
 # tyt
 
 Track your time
