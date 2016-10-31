@@ -3,11 +3,25 @@ package main
 import (
 	"fmt"
 	"github.com/kataras/iris"
+	"github.com/tidwall/buntdb"
 )
 
 const (
 	keyUserID = "user_id"
 )
+
+var getCurrentUser func(ctx *iris.Context) *User
+
+func makeGetCurrentUser(db *buntdb.DB) func(ctx *iris.Context) *User {
+	return func(ctx *iris.Context) *User {
+		id := getUserID(ctx)
+		user, err := findUserByID(db, id)
+		if err != nil {
+			return nil
+		}
+		return user
+	}
+}
 
 func getUserID(ctx *iris.Context) string {
 	val := ctx.Session().Get(keyUserID)

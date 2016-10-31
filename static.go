@@ -21,8 +21,8 @@ func staticContent() {
 
 	index := func(ctx *iris.Context) {
 		// TODO better approach to authorize
-		userID := getUserID(ctx)
-		if len(userID) == 0 {
+		user := getCurrentUser(ctx)
+		if user == nil {
 			ctx.Redirect("/login.html")
 			return
 		}
@@ -34,8 +34,8 @@ func staticContent() {
 
 	iris.Get("/statistics", func(ctx *iris.Context) {
 		// TODO better approach to authorize
-		userID := getUserID(ctx)
-		if len(userID) == 0 {
+		user := getCurrentUser(ctx)
+		if user == nil {
 			ctx.Redirect("/login.html")
 			return
 		}

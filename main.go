@@ -29,6 +29,8 @@ func main() {
 	}
 	defer db.Close()
 
+	getCurrentUser = makeGetCurrentUser(db)
+
 	// FIXME
 	iris.Config.VScheme = "http://"
 	iris.Config.VHost = "localhost:8080"
