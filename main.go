@@ -49,14 +49,8 @@ func installAPI(db *buntdb.DB) {
 	Auth{db: db}.install()
 
 	iris.Get("/api/me", func(ctx *iris.Context) {
-		userID := getUserID(ctx)
-		if len(userID) == 0 {
-			ctx.NotFound()
-			return
-		}
-		fmt.Printf("user_id = %s\n", userID)
-		user, err := findUserByID(db, userID)
-		if err != nil {
+		user := getCurrentUser(ctx)
+		if user == nil {
 			ctx.NotFound()
 			return
 		}
