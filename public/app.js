@@ -141,7 +141,7 @@ $(function() {
 	API.me().then(user => {
 		currentUser = user;
 		if (user) {
-			$(".greeting").text("Hey, " + user.name);
+			$(".greeting").text("Hello, " + user.name + "!");
 		}
 	});
 
