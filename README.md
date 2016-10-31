@@ -1,6 +1,6 @@
-# t3
+# tyt
 
-Trivial time tracker
+Track your time
 
 ## How to build and run
 
