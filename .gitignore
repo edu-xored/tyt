@@ -1,7 +1,7 @@
 data
 data.db
 tyt
-tyt.exe
+tyt.exe*
 tyt.toml
 .idea
 *.iml
