@@ -12,10 +12,6 @@ import (
 	"strings"
 )
 
-const (
-	keyUserID = "user_id"
-)
-
 func main() {
 	viper.SetConfigName("tyt")
 	viper.SetConfigType("toml")

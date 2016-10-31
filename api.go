@@ -106,18 +106,6 @@ func (api API) makeGetHandler() iris.HandlerFunc {
 	}
 }
 
-func getUserID(ctx *iris.Context) string {
-	val := ctx.Get(keyUserID)
-	if val != nil {
-		return val.(string)
-	}
-	s := ctx.GetCookie(keyUserID)
-	if len(s) > 0 {
-		return s
-	}
-	return "robot"
-}
-
 func (api API) readResource(ctx *iris.Context) (IEntity, error) {
 	resource := api.factory()
 
@@ -127,11 +115,6 @@ func (api API) readResource(ctx *iris.Context) (IEntity, error) {
 	}
 
 	return resource, nil
-}
-
-func logError(ctx *iris.Context, message string) {
-	payload := string(ctx.Request.Body())
-	fmt.Printf("%s: %s", message, payload)
 }
 
 func (api API) makeCreateHandler() iris.HandlerFunc {
@@ -234,10 +217,4 @@ func (api API) makeDeleteHandler() iris.HandlerFunc {
 			ctx.JSON(200, "ok")
 		}
 	}
-}
-
-func sendError(ctx *iris.Context, err error) {
-	fmt.Printf("error: %v", err)
-	// TODO classify errors
-	ctx.Error(err.Error(), 404)
 }
