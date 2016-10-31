@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	viper.SetConfigName("t3")
+	viper.SetConfigName("tyt")
 	viper.SetConfigType("toml")
 	viper.AddConfigPath(".")
 
