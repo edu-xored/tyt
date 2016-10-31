@@ -34,8 +34,8 @@ func staticContent() {
 
 	iris.Get("/statistics", func(ctx *iris.Context) {
 		// TODO better approach to authorize
-		user_id := ctx.GetCookie(keyUserID)
-		if len(user_id) == 0 {
+		userID := getUserID(ctx)
+		if len(userID) == 0 {
 			ctx.Redirect("/login.html")
 			return
 		}
