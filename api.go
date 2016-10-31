@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"encoding/json"
+	"fmt"
 	"github.com/kataras/iris"
 	"github.com/tidwall/buntdb"
 	"strings"
@@ -15,6 +15,7 @@ type API struct {
 	resource   string // singular name
 	collection string
 	factory    func() IEntity
+	onCreate   func(tx *buntdb.Tx, resource IEntity) error
 }
 
 func (api API) install() {
@@ -41,10 +42,10 @@ func (api API) makeListHandler() iris.HandlerFunc {
 			count := 0
 			str := "["
 			err := tx.Ascend("", func(key, val string) bool {
-				if (!strings.HasPrefix(key, api.resource + "/")) {
+				if !strings.HasPrefix(key, api.resource+"/") {
 					return true
 				}
-				if (comma) {
+				if comma {
 					str += ","
 				}
 				str += val
@@ -106,11 +107,15 @@ func (api API) makeGetHandler() iris.HandlerFunc {
 }
 
 func getUserID(ctx *iris.Context) string {
-	val := ctx.Get("user_id")
-	if val == nil {
-		return "robot"
+	val := ctx.Get(keyUserID)
+	if val != nil {
+		return val.(string)
 	}
-	return val.(string)
+	s := ctx.GetCookie(keyUserID)
+	if len(s) > 0 {
+		return s
+	}
+	return "robot"
 }
 
 func (api API) readResource(ctx *iris.Context) (IEntity, error) {
@@ -149,7 +154,14 @@ func (api API) makeCreateHandler() iris.HandlerFunc {
 			key := fmt.Sprintf("%s/%s", api.resource, resource.GetID())
 			_, _, err = tx.Set(key, string(bytes), nil)
 
-			if (err != nil) {
+			if api.onCreate != nil {
+				err = api.onCreate(tx, resource)
+				if err != nil {
+					return err
+				}
+			}
+
+			if err != nil {
 				return err
 			}
 
@@ -193,7 +205,7 @@ func (api API) makePutHandler() iris.HandlerFunc {
 
 			_, _, err = tx.Set(key, string(bytes), nil)
 
-			if (err != nil) {
+			if err != nil {
 				return err
 			}
 

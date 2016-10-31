@@ -3,6 +3,11 @@ form {
 	width: 500px;
 }
 
+.greeting {
+	margin: 50px auto;
+	width: 500px;
+}
+
 #message {
 	height: 150px;
 	resize: vertical;
