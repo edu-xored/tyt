@@ -1,1 +1,1 @@
-CompileDaemon -command=t3.exe
+CompileDaemon -command=tyt.exe

@@ -17,3 +17,8 @@ Inside project root:
 * `cd scripts` 
 * `npm install`
 * `node init.js`
+
+## Watch dev mode
+
+* `go get -u github.com/githubnemo/CompileDaemon`
+* `./run.sh`
