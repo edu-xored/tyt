@@ -1,0 +1,28 @@
+form {
+	margin: 50px auto;
+	width: 500px;
+}
+
+#message {
+	height: 150px;
+	resize: vertical;
+}
+
+.form-login {
+	max-width: 330px;
+	padding: 15px;
+	margin: 0 auto;
+}
+.github-login {
+	width: 100px;
+	padding-bottom: 20px;
+}
+.body-login {
+	padding-top: 40px;
+	padding-bottom: 40px;
+	background-color: #eee;
+}
+
+.highcharts-credits {
+	display: none;
+}

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Track Your Time</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+	<link rel="stylesheet" href="/public/app.css"/>
+	<script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="/public/app.js"></script>
+</head>
+<body>
+<div class="container">
+	<h1 style="text-align: center">Send Status Report</h1>
+	<a href="/statistics" class="pull-right">View Statistics</a>
+	<form id="form">
+		<div class="form-group">
+			<label for="user-dropdown">User</label>
+			<div class="dropdown" id="user-dropdown">
+				<button class="btn btn-default dropdown-toggle" type="button" id="usersMenu" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="true">
+					<span id="selected-user">None</span>
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" id="user-menu" aria-labelledby="usersMenu">
+					<li><a href="#">Action</a></li>
+					<li><a href="#">Another action</a></li>
+					<li><a href="#">Something else here</a></li>
+					<li role="separator" class="divider"></li>
+					<li><a href="#">Separated link</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="message">Status</label>
+			<textarea class="form-control" id="message" value="" placeholder="What is your status today?"></textarea>
+		</div>
+		<div class="form-group">
+			<label for="duration-dropdown">Time spent</label>
+			<div class="dropdown" id="duration-dropdown">
+				<button class="btn btn-default dropdown-toggle" type="button" id="durationMenu" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="true">
+					<span id="duration" data-value="1">1 hour</span>
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" id="duration-menu" aria-labelledby="durationMenu">
+				</ul>
+			</div>
+		</div>
+		<div class="form-group">
+			<button class="btn btn-default btn-lg" id="btn-send" type="submit">Send</button>
+		</div>
+	</form>
+</div>
+</body>
+</html>
