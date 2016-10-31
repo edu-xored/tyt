@@ -7,13 +7,13 @@ Track your time
 Inside project root:
 
 * `go build`
-* `t3`
+* `tyt`
 
 ## How to init database
 
 Inside project root:
 
-* run t3
+* run tyt
 * `cd scripts` 
 * `npm install`
 * `node init.js`
