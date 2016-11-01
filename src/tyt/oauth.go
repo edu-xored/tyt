@@ -39,10 +39,7 @@ func initOAuth(db *buntdb.DB) {
 			return
 		}
 
-		// TODO generate token instead of user id
-		ctx.Set(keyUserID, user.ID)
-		ctx.Session().Set(keyUserID, user.ID)
-		ctx.SetCookieKV(keyUserID, user.ID)
+		setUser(ctx, user)
 		ctx.Redirect("/index.html")
 	})
 

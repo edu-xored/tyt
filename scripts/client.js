@@ -38,7 +38,29 @@ function makeAPI(api) {
 	};
 }
 
+function basicAuth(username, password) {
+	if (!username || !password) {
+		return '';
+	}
+	return 'Basic ' + new Buffer(`${username}:${password}`).toString('base64');
+}
+
 module.exports = {
+	login: function(username, password) {
+		return fetch(`${BASE}/login`, {
+			credentials: "same-origin",
+			method: 'POST',
+			headers: {
+				Authorization: basicAuth(username, password),
+			},
+		}).then(toJSON);
+	},
+	me: function() {
+		return fetch(`${BASE}/me`, {
+			credentials: "same-origin",
+			headers: makeHeaders(),
+		}).then(toJSON);
+	},
 	users: makeAPI({
 		resource: 'user',
 		collection: 'users',

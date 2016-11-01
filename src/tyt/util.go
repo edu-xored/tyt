@@ -51,6 +51,13 @@ func getUserID(ctx *iris.Context) string {
 	return "robot"
 }
 
+func setUser(ctx *iris.Context, user *User) {
+	// TODO generate token instead of user id
+	ctx.Set(keyUserID, user.ID)
+	ctx.Session().Set(keyUserID, user.ID)
+	ctx.SetCookieKV(keyUserID, user.ID)
+}
+
 func logError(ctx *iris.Context, message string) {
 	payload := string(ctx.Request.Body())
 	fmt.Printf("%s: %s", message, payload)
