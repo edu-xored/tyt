@@ -6,4 +6,5 @@ env:
 before_install:
   - go get github.com/constabulary/gb/...
 script:
+  - gb vendor restore
   - gb build
