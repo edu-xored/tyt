@@ -9,7 +9,8 @@ Track your time
 Inside project root:
 
 * `go get github.com/constabulary/gb/...`
-* `gb build`
+* `$GOPATH/bin/gb vendor restore`
+* `$GOPATH/bin/gb build`
 * `tyt`
 
 ## How to init database
