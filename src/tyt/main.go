@@ -4,12 +4,13 @@ import (
 	"fmt"
 	"log"
 
+	"strings"
+
 	"github.com/iris-contrib/middleware/cors"
 	"github.com/iris-contrib/middleware/logger"
 	"github.com/kataras/iris"
 	"github.com/spf13/viper"
 	"github.com/tidwall/buntdb"
-	"strings"
 )
 
 func main() {

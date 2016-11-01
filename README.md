@@ -8,7 +8,8 @@ Track your time
 
 Inside project root:
 
-* `go build`
+* `go get github.com/constabulary/gb/...`
+* `gb build`
 * `tyt`
 
 ## How to init database

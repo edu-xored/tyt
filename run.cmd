@@ -1,1 +1,1 @@
-CompileDaemon -command=tyt.exe
+CompileDaemon -build="gb build" -command=bin\tyt.exe

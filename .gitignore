@@ -1,8 +1,8 @@
+bin
+pkg
 data
 data.db
 debug
-tyt
-tyt.exe*
 tyt.toml
 .idea
 *.iml
