@@ -74,9 +74,24 @@ const API = {
 	}),
 };
 
+function durationLabel(val) {
+	switch (val) {
+		case 0.5:
+			return 'полчаса';
+		case 1:
+			return '1 час'
+		case 2:
+		case 3:
+		case 4: 
+			return val + " часа";
+		default:
+			return val + " часов";
+	}
+}
+
 function initDurationMenu() {
 	[0.5, 1, 2, 3, 4, 5, 6, 7, 8].forEach(val => {
-		const label = val + " hour";
+		const label = durationLabel(val);
 		const a = $('<a href="#"></a>').text(label);
 		const li = $('<li></li>');
 		li.append(a);
@@ -126,7 +141,7 @@ function reset() {
 	$("#message").val('');
 	// reset duratoin
 	$("#duration")
-		.text('1 hour')
+		.text(durationLabel(1))
 		.attr('data-value', 1);
 }
 
@@ -141,7 +156,7 @@ $(function() {
 	API.me().then(user => {
 		currentUser = user;
 		if (user) {
-			$(".greeting").text("Hello, " + user.name + "!");
+			$(".greeting").text("Привет, " + user.name + "!");
 		}
 	});
 

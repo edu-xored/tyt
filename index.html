@@ -15,20 +15,18 @@
 </head>
 <body>
 <div class="container">
-	<h1 style="text-align: center">Send Status Report</h1>
-	<p class="greeting">Hello!</p>
-	<a href="/statistics" class="pull-right">View Statistics</a>
+	<p class="greeting">Привет!</p>
+	<a href="/statistics" class="pull-right">Статистика</a>
 	<form id="form">
 		<div class="form-group">
-			<label for="message">Status</label>
-			<textarea class="form-control" id="message" value="" placeholder="What is your status today?"></textarea>
+			<textarea class="form-control" id="message" value="" placeholder="Что ты сегодня сделал?"></textarea>
 		</div>
 		<div class="form-group">
-			<label for="duration-dropdown">Time spent</label>
+			<label for="duration-dropdown">Затраченное время:</label>
 			<div class="dropdown" id="duration-dropdown">
 				<button class="btn btn-default dropdown-toggle" type="button" id="durationMenu" data-toggle="dropdown"
 						aria-haspopup="true" aria-expanded="true">
-					<span id="duration" data-value="1">1 hour</span>
+					<span id="duration" data-value="1">1 час</span>
 					<span class="caret"></span>
 				</button>
 				<ul class="dropdown-menu" id="duration-menu" aria-labelledby="durationMenu">
@@ -36,7 +34,7 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<button class="btn btn-default btn-lg" id="btn-send" type="submit">Send</button>
+			<button class="btn btn-default btn-lg btn-primary" id="btn-send" type="submit">Отправить</button>
 		</div>
 	</form>
 </div>
