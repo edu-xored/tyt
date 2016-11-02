@@ -99,7 +99,7 @@ func installAPI(db *buntdb.DB) {
 		factory:    func() IEntity { return &Event{} },
 	}.install()
 
-	// events API
+	// spectacles API
 	API{
 		db:         db,
 		resource:   "spectacle",
