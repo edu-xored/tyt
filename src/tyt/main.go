@@ -32,9 +32,9 @@ func main() {
 
 	getCurrentUser = makeGetCurrentUser(db)
 
-	// FIXME
-	iris.Config.VScheme = "http://"
-	iris.Config.VHost = "localhost:8080"
+	//TODO: move to config
+	iris.Config.VScheme = "https://"
+	iris.Config.VHost = "edu-status.xored.com"
 
 	initOAuth(db)
 	installAPI(db)

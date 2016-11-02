@@ -92,7 +92,7 @@
 		{
 			"importpath": "github.com/hashicorp/hcl",
 			"repository": "https://github.com/hashicorp/hcl",
-			"revision": "8fa153c5b4e9d1ccecda7075821ffc7c1f6d912b",
+			"revision": "6e968a3fcdcbab092f5307fd0d85479d5af1e4dc",
 			"branch": "master"
 		},
 		{
@@ -114,12 +114,6 @@
 			"branch": "master"
 		},
 		{
-			"importpath": "github.com/iris-contrib/formBinder",
-			"repository": "https://github.com/iris-contrib/formBinder",
-			"revision": "023b47796b500a9a9407e81cbf1cf5ebf45718e0",
-			"branch": "master"
-		},
-		{
 			"importpath": "github.com/iris-contrib/gothic",
 			"repository": "https://github.com/iris-contrib/gothic",
 			"revision": "1cbef10677dd98d13c684d317723cf04feae8f67",
@@ -131,12 +125,6 @@
 			"revision": "095d7f6459c501cb15319aa2754afa221b81a3ec",
 			"branch": "master",
 			"path": "/acme"
-		},
-		{
-			"importpath": "github.com/iris-contrib/letsencrypt",
-			"repository": "https://github.com/iris-contrib/letsencrypt",
-			"revision": "1a3e5c619a13b307df3b1b4da7cb7e57d2e156dd",
-			"branch": "master"
 		},
 		{
 			"importpath": "github.com/iris-contrib/middleware/cors",
@@ -158,12 +146,6 @@
 			"revision": "ebc0781e918c124ff870f89319a8013f19f2e766",
 			"branch": "master",
 			"path": "/oauth"
-		},
-		{
-			"importpath": "github.com/iris-contrib/websocket",
-			"repository": "https://github.com/iris-contrib/websocket",
-			"revision": "cc9f1712095295a828e9a2efaef388d30b9c7760",
-			"branch": "master"
 		},
 		{
 			"importpath": "github.com/kataras/go-errors",
@@ -584,21 +566,21 @@
 		{
 			"importpath": "golang.org/x/net/context",
 			"repository": "https://go.googlesource.com/net",
-			"revision": "541150ac4f433e755f5663eba5d888c2fa347343",
+			"revision": "4bb47a1098b37d69980d96237e2ae4ff56bb5a95",
 			"branch": "master",
 			"path": "/context"
 		},
 		{
 			"importpath": "golang.org/x/net/html",
 			"repository": "https://go.googlesource.com/net",
-			"revision": "541150ac4f433e755f5663eba5d888c2fa347343",
+			"revision": "4bb47a1098b37d69980d96237e2ae4ff56bb5a95",
 			"branch": "master",
 			"path": "/html"
 		},
 		{
 			"importpath": "golang.org/x/net/publicsuffix",
 			"repository": "https://go.googlesource.com/net",
-			"revision": "541150ac4f433e755f5663eba5d888c2fa347343",
+			"revision": "4bb47a1098b37d69980d96237e2ae4ff56bb5a95",
 			"branch": "master",
 			"path": "/publicsuffix"
 		},
