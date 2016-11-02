@@ -6,3 +6,5 @@ debug
 tyt.toml
 .idea
 *.iml
+node_modules
+*.log

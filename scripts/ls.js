@@ -1,9 +1,6 @@
-require('es6-promise');
-require('isomorphic-fetch');
+const API = require('../public/client');
 
 // TODO allow to list teams, events
-
-const API = require('./client');
 
 API.users.getList().then(list => {
 	console.log(list);

@@ -1,8 +1,6 @@
-require('es6-promise');
-require('isomorphic-fetch');
+const API = require('../public/client');
 const push = require('./queue');
 
-const API = require('./client');
 const users = API.users;
 
 function getUsers() {
