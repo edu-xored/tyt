@@ -32,9 +32,8 @@ func main() {
 
 	getCurrentUser = makeGetCurrentUser(db)
 
-	//TODO: move to config
-	iris.Config.VScheme = "https://"
-	iris.Config.VHost = "edu-status.xored.com"
+	iris.Config.VScheme = viper.GetString("vscheme")
+	iris.Config.VHost = viper.GetString("vhost")
 
 	initOAuth(db)
 	installAPI(db)
