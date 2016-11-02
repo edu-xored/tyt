@@ -94,9 +94,17 @@ const API = {
 		resource: 'team',
 		collection: 'teams',
 	}),
+	orgs: makeAPI({
+		resource: 'org',
+		collection: 'orgs',
+	}),
 	events: makeAPI({
 		resource: 'event',
 		collection: 'events',
+	}),
+	spectacles: makeAPI({
+		resource: 'spectacle',
+		collection: 'spectacles',
 	}),
 };
 
