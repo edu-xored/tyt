@@ -16,7 +16,9 @@ API.events.getList()
 				eventMap.set(userId, [{duration, message}])
 			}
 		});
-		const data = users.map(user => [user.name, eventMap.get(user.id) || []]);
+		const data = users
+			.filter(user => eventMap.has(user.id))
+			.map(user => [user.name, eventMap.get(user.id) || []]);
 		makeChart(data)
 	});
 
