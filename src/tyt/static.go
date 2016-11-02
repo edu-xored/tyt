@@ -32,7 +32,7 @@ func staticContent() {
 	iris.Get("/", index)
 	iris.Get("/index.html", index)
 
-	iris.Get("/statistics", func(ctx *iris.Context) {
+	iris.Get("/statistics.html", func(ctx *iris.Context) {
 		// TODO better approach to authorize
 		user := getCurrentUser(ctx)
 		if user == nil {
