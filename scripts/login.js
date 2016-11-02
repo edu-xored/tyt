@@ -1,7 +1,4 @@
-require('es6-promise');
-require('isomorphic-fetch');
-
-const API = require('./client');
+const API = require('../public/client');
 
 API.login(process.argv[2], process.argv[3]).then(d => {
 	console.log(d);

@@ -19,26 +19,26 @@ func staticContent() {
 		ctx.ServeFile("./docs/index.html", false)
 	})
 
-	index := func(ctx *iris.Context) {
-		// TODO better approach to authorize
-		user := getCurrentUser(ctx)
-		if user == nil {
-			ctx.Redirect("/login.html")
-			return
+	protected := func(handler iris.HandlerFunc) iris.HandlerFunc {
+		return func(ctx *iris.Context) {
+			// TODO better approach to authorize
+			user := getCurrentUser(ctx)
+			if user == nil {
+				ctx.Redirect("/login.html")
+				return
+			}
+			handler(ctx)
 		}
-		ctx.ServeFile("./index.html", false)
 	}
+
+	index := protected(func(ctx *iris.Context) {
+		ctx.ServeFile("./index.html", false)
+	})
 
 	iris.Get("/", index)
 	iris.Get("/index.html", index)
 
-	iris.Get("/statistics.html", func(ctx *iris.Context) {
-		// TODO better approach to authorize
-		user := getCurrentUser(ctx)
-		if user == nil {
-			ctx.Redirect("/login.html")
-			return
-		}
+	iris.Get("/statistics.html", protected(func(ctx *iris.Context) {
 		ctx.ServeFile("./statistics.html", false)
-	})
+	}))
 }

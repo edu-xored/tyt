@@ -1,6 +1,6 @@
 const teams = require('../data/teams.json');
 const users = require('../data/users.json');
-const API = require('./client');
+const API = require('../public/client');
 const push = require('./queue');
 
 function fromGithubTeam(t) {

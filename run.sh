@@ -1,1 +1,1 @@
-CompileDaemon -build="gb build" -command=.bin/tyt
+CompileDaemon -build="gb build" -command=./bin/tyt
