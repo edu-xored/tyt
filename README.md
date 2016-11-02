@@ -11,13 +11,13 @@ Inside project root:
 * `go get github.com/constabulary/gb/...`
 * `$GOPATH/bin/gb vendor restore`
 * `$GOPATH/bin/gb build`
-* `tyt`
+* `./bin/tyt`
 
 ## How to init database
 
 Inside project root:
 
-* run tyt
+* run `./bin/tyt`
 * `cd scripts` 
 * `npm install`
 * `node init.js`
