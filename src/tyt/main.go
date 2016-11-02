@@ -83,12 +83,28 @@ func installAPI(db *buntdb.DB) {
 		factory:    func() IEntity { return &Team{} },
 	}.install()
 
+	// organizations API
+	API{
+		db:         db,
+		resource:   "org",
+		collection: "orgs",
+		factory:    func() IEntity { return &Organization{} },
+	}.install()
+
 	// events API
 	API{
 		db:         db,
 		resource:   "event",
 		collection: "events",
 		factory:    func() IEntity { return &Event{} },
+	}.install()
+
+	// events API
+	API{
+		db:         db,
+		resource:   "spectacle",
+		collection: "spectacles",
+		factory:    func() IEntity { return &Spectacle{} },
 	}.install()
 
 	// TODO api to change user password

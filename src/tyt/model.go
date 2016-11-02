@@ -1,8 +1,9 @@
 package main
 
 import (
-	"github.com/satori/go.uuid"
 	"time"
+
+	"github.com/satori/go.uuid"
 )
 
 type IEntity interface {
@@ -57,12 +58,22 @@ type User struct {
 
 type Team struct {
 	Entity
+	OrganizationID string   `json:"organization_id,omitempty"`
+	Name           string   `json:"name"`
+	Description    string   `json:"description,omitempty"`
+	Slug           string   `json:"slug,omitempty"`
+	Github         string   `json:"github,omitempty"`   // github URL
+	Telegram       string   `json:"telegram,omitempty"` // team chat
+	Members        []string `json:"members,omitempty"`  // member ids
+}
+
+type Organization struct {
+	Entity
 	Name        string   `json:"name"`
 	Description string   `json:"description,omitempty"`
 	Slug        string   `json:"slug,omitempty"`
-	Github      string   `json:"github,omitempty"`   // github URL
-	Telegram    string   `json:"telegram,omitempty"` // team chat
-	Members     []string `json:"members,omitempty"`  // member ids
+	Github      string   `json:"github,omitempty"` // organization github URL
+	Teams       []string `json:"teams,omitempty"`  // team ids
 }
 
 type Event struct {
@@ -73,5 +84,14 @@ type Event struct {
 	Start   time.Time `json:"start"`
 	End     time.Time `json:"end"`
 	// allow to track just time spent in hours
-	Duration int32 `json:"duration"`
+	Duration    int32  `json:"duration"`
+	SpectacleID string `json:"spectacle_id,omitempty"`
+}
+
+type Spectacle struct {
+	Entity
+	Type  string    `json:"type"`
+	Title string    `json:"title"`
+	Start time.Time `json:"start"`
+	End   time.Time `json:"end"`
 }
