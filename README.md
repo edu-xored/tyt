@@ -18,8 +18,8 @@ Inside project root:
 Inside project root:
 
 * run `./bin/tyt`
-* `cd scripts` 
 * `npm install`
+* `cd scripts` 
 * `node init.js`
 
 ## Watch dev mode
