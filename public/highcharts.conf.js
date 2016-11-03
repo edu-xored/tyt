@@ -26,10 +26,17 @@ API.events.getList()
 function makeChart(data) {
 	$('#users-statistics').highcharts({
 		chart: {
-			type: 'column'
+			type: 'column',
+			backgroundColor: 'transparent',
+			style: {
+				fontFamily: 'Helvetica, sans-serif'
+			}
 		},
 		title: {
-			text: 'Tracked Time'
+			text: 'График занятости',
+			style: {
+				color: '#ffffff'
+			}
 		},
 		xAxis: {
 			type: 'category',
@@ -37,27 +44,30 @@ function makeChart(data) {
 				rotation: -45,
 				style: {
 					fontSize: '13px',
-					fontFamily: 'Helvetica, sans-serif'
+					fontFamily: 'Helvetica, sans-serif',
+					color: '#ffffff'
 				}
 			}
 		},
 		yAxis: {
 			min: 0,
+			labels: {
+				style: {
+					color: '#ffffff'
+				}
+			},
 			title: {
-				text: 'Logged time'
+				text: 'Количество часов',
+				style: {
+					color: '#ffffff'
+				}
 			}
 		},
 		legend: {
 			enabled: false
 		},
 		tooltip: {
-			formatter: getFormattedTooltip(data),
-			positioner: function (labelWidth, labelHeight, point) {
-				return {
-					x: point.plotX + this.chart.plotLeft + 20,
-					y: point.plotY
-				};
-			}
+			formatter: getFormattedTooltip(data)
 		},
 		series: [{
 			name: 'users',
