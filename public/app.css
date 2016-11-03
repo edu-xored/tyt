@@ -1,12 +1,45 @@
+@import url("https://fonts.googleapis.com/css?family=PT+Sans:400,700");
+
 form {
-	margin: 50px auto;
-	width: 100%;
-	max-width: 500px;
+	margin: 10px auto;
+	width: 380px;
+}
+
+label {
+	font-size: : 2em;
+	font-weight: 400;
+	color:#fff;
+}
+
+.container{
+	xbox-shadow: 0px 5px 20px #000;
+	max-width: 440px;
+	border-radius:8px;
+	position: relative;
+	xborder-style: solid;
+	border-width: thin;
+	border-color: #fff;
+	margin-top: 10px;
+	background-color: rgba(0,0,0, 0.5)
+}
+.edu-copyright {
+	  width:420px;
+		color:#888;
+		text-align:center;
+		padding: 0 0 0 0px;
+		margin: 0 0 20px 0;
+		position: relative;
+}
+
+#edu-stat-link {
+
 }
 
 .greeting {
 	margin: 50px auto;
-	width: 500px;
+	width: 400px;
+	font-size: 2em;
+	color:#fff;
 }
 
 #message {
@@ -14,21 +47,87 @@ form {
 	resize: vertical;
 }
 
+
+.form-control {
+	width:380px;
+	margin:0;
+	background-color: transparent;
+	border-style: solid;
+	border-color: #fff;
+}
+
 .form-login {
 	max-width: 330px;
 	padding: 15px;
 	margin: 0 auto;
 }
+
 .github-login {
-	width: 100px;
-	padding-bottom: 20px;
+	width: 120px;
+	padding-top: -20px;
+}
+
+.login-header {
+	font-weight: 700;
+	font-size: 2.5em;
+	margin:0 0 20px 0;
+	color:#fff;
 }
 .body-login {
+	font-family: "PT Sans", sans-serif;
 	padding-top: 40px;
 	padding-bottom: 40px;
-	background-color: #eee;
+	background-color: #fff;
+	min-width: 400px;
+}
+
+.btn-login {
+	width:280px;
+	height:40px;
+	font-size:2em;
+	vertical-align:center;
+	margin-left:10px;
 }
 
 .highcharts-credits {
 	display: none;
+}
+
+/* git-btn */
+
+.btn-social{position:relative;padding-left:44px;font-weight:400; text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.btn-social>:first-child{position:absolute;left:0;top:0;bottom:0;width:32px;line-height:34px;font-size:1.4em;text-align:center;border-right:1px solid rgba(0,0,0,0.2)}
+.btn-social.btn-lg{padding-left:61px}.btn-social.btn-lg>:first-child{line-height:45px;width:45px;font-size:1.4em}
+
+.soc-btn-bg {
+	padding:5px;
+	background-image: url("img/GitHub-Mark-Light-32px.png");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.btn-github{color:#fff;background-color:#444;border-color:rgba(0,0,0,0.2)}.btn-github:focus,.btn-github.focus{color:#fff;background-color:#2b2b2b;border-color:rgba(0,0,0,0.2)}
+.btn-github:hover{color:#fff;background-color:#2b2b2b;border-color:rgba(0,0,0,0.2)}
+.btn-github:active,.btn-github.active,.open>.dropdown-toggle.btn-github{color:#fff;background-color:#2b2b2b;border-color:rgba(0,0,0,0.2)}.btn-github:active:hover,.btn-github.active:hover,.open>.dropdown-toggle.btn-github:hover,.btn-github:active:focus,.btn-github.active:focus,.open>.dropdown-toggle.btn-github:focus,.btn-github:active.focus,.btn-github.active.focus,.open>.dropdown-toggle.btn-github.focus{color:#fff;background-color:#191919;border-color:rgba(0,0,0,0.2)}
+.btn-github:active,.btn-github.active,.open>.dropdown-toggle.btn-github{background-image:none}
+.btn-github.disabled:hover,.btn-github[disabled]:hover,fieldset[disabled] .btn-github:hover,.btn-github.disabled:focus,.btn-github[disabled]:focus,fieldset[disabled] .btn-github:focus,.btn-github.disabled.focus,.btn-github[disabled].focus,fieldset[disabled] .btn-github.focus{background-color:#444;border-color:rgba(0,0,0,0.2)}
+.btn-github .badge{color:#444;background-color:#fff}
+
+.hello-world {
+	position: absolute;
+	left: -200px;
+	right: -200px;
+	top: 0px;
+	font-family: monospace;
+	font-size: 1.1em;
+	line-height: 1.75em;
+	text-align: left;
+	color: rgba(255, 255, 255, 0.1);
+	z-index: 0;
+	height: 100%;
+	background-color:#111;
+	overflow: hidden;
+}
+
+.hello-world::before {
+    content: 'echo "Hello World"   PRINT "Hello, world!"​   #include int main(void) {puts("Hello, world!");}   #include int main() {std::cout &lt;&lt; "Hello, world!"; return 0;}   using System; class Program {public static void Main(string[] args) {Console.WriteLine("Hello, world!");}}   ? "Hello World"   console.log "Hello, world!"   program HelloWorld; begin Writeln("Hello, world!"); end.   Hello World!   import javax.swing.JFrame; import javax.swing.JLabel; public class HelloWorld {public static void main(String[] args) {JFrame frame = new JFrame(); frame.setTitle("Hi!"); frame.add(new JLabel("Hello, world!")); frame.pack(); frame.setLocationRelativeTo(null); frame.setVisible(true);}}   document.write("Hello, world!");   $("body").append("Hello world!");   println("Hello world!")   print [Hello, world!]   disp("Hello, world!")   #import #import int main(void) {NSLog(@"Hello, world!"); return 0;}   program HelloWorld; begin WriteLn("Hello, world!"); end.   print "Hello, world!";   void setup() {println("Hello, world!");}   print "Hello, world!"   cat("Hello, world!")   puts "Hello, world!"   println("Hello, world!")   Module Module1 Sub Main() Console.WriteLine("Hello, world!") End Sub End Module   Hello World   echo "Hello World"   PRINT "Hello, world!"​   #include int main(void) {puts("Hello, world!");}   #include int main() {std::cout &lt;&lt; "Hello, world!"; return 0;}   using System; class Program {public static void Main(string[] args) {Console.WriteLine("Hello, world!");}}   ? "Hello World"   console.log "Hello, world!"   program HelloWorld; begin Writeln("Hello, world!"); end.   Hello World!   import javax.swing.JFrame; import javax.swing.JLabel; public class HelloWorld {public static void main(String[] args) {JFrame frame = new JFrame(); frame.setTitle("Hi!"); frame.add(new JLabel("Hello, world!")); frame.pack(); frame.setLocationRelativeTo(null); frame.setVisible(true);}}   document.write("Hello, world!");   $("body").append("Hello world!");   println("Hello world!")   print [Hello, world!]   disp("Hello, world!")   #import #import int main(void) {NSLog(@"Hello, world!"); return 0;}   program HelloWorld; begin WriteLn("Hello, world!"); end.   print "Hello, world!";   void setup() {println("Hello, world!");}   print "Hello, world!"   cat("Hello, world!")   puts "Hello, world!"   println("Hello, world!")   Module Module1 Sub Main() Console.WriteLine("Hello, world!") End Sub End Module   Hello World   echo "Hello World"   PRINT "Hello, world!"​   #include int main(void) {puts("Hello, world!");}   #include int main() {std::cout &lt;&lt; "Hello, world!"; return 0;}   using System; class Program {public static void Main(string[] args) {Console.WriteLine("Hello, world!");}}   ? "Hello World"   console.log "Hello, world!"   program HelloWorld; begin Writeln("Hello, world!"); end.   Hello World!   import javax.swing.JFrame; import javax.swing.JLabel; public class HelloWorld {public static void main(String[] args) {JFrame frame = new JFrame(); frame.setTitle("Hi!"); frame.add(new JLabel("Hello, world!")); frame.pack(); frame.setLocationRelativeTo(null); frame.setVisible(true);}}   document.write("Hello, world!");   $("body").append("Hello world!");   println("Hello world!")   print [Hello, world!]   disp("Hello, world!")   #import #import int main(void) {NSLog(@"Hello, world!"); return 0;}   program HelloWorld; begin WriteLn("Hello, world!"); end.   print "Hello, world!";   void setup() {println("Hello, world!");}   print "Hello, world!"   cat("Hello, world!")   puts "Hello, world!"   println("Hello, world!")   Module Module1 Sub Main() Console.WriteLine("Hello, world!") End Sub End Module   Hello World   echo "Hello World"   PRINT "Hello, world!"​   #include int main(void) {puts("Hello, world!");}   #include int main() {std::cout &lt;&lt; "Hello, world!"; return 0;}   using System; class Program {public static void Main(string[] args) {Console.WriteLine("Hello, world!");}}   ? "Hello World"   console.log "Hello, world!"   program HelloWorld; begin Writeln("Hello, world!"); end.   Hello World!   import javax.swing.JFrame; import javax.swing.JLabel; public class HelloWorld {public static void main(String[] args) {JFrame frame = new JFrame(); frame.setTitle("Hi!"); frame.add(new JLabel("Hello, world!")); frame.pack(); frame.setLocationRelativeTo(null); frame.setVisible(true);}}   document.write("Hello, world!");   $("body").append("Hello world!");   println("Hello world!")   print [Hello, world!]   disp("Hello, world!")   #import #import int main(void) {NSLog(@"Hello, world!"); return 0;}   program HelloWorld; begin WriteLn("Hello, world!"); end.   print "Hello, world!";   void setup() {println("Hello, world!");}   print "Hello, world!"   cat("Hello, world!")   puts "Hello, world!"   println("Hello, world!")   Module Module1 Sub Main() Console.WriteLine("Hello, world!") End Sub End Module   Hello World   echo "Hello World"   PRINT "Hello, world!"​   #include int main(void) {puts("Hello, world!");}   #include int main() {std::cout &lt;&lt; "Hello, world!"; return 0;}   using System; class Program {public static void Main(string[] args) {Console.WriteLine("Hello, world!");}}   ? "Hello World"   console.log "Hello, world!"   program HelloWorld; begin Writeln("Hello, world!"); end.   Hello World!   import javax.swing.JFrame; import javax.swing.JLabel; public class HelloWorld {public static void main(String[] args) {JFrame frame = new JFrame(); frame.setTitle("Hi!"); frame.add(new JLabel("Hello, world!")); frame.pack(); frame.setLocationRelativeTo(null); frame.setVisible(true);}}   document.write("Hello, world!");   $("body").append("Hello world!");   println("Hello world!")   print [Hello, world!]   disp("Hello, world!")   #import #import int main(void) {NSLog(@"Hello, world!"); return 0;}   program HelloWorld; begin WriteLn("Hello, world!"); end.   print "Hello, world!";   void setup() {println("Hello, world!");}   print "Hello, world!"   cat("Hello, world!")   puts "Hello, world!"   println("Hello, world!")   Module Module1 Sub Main() Console.WriteLine("Hello, world!") End Sub End Module   Hello World   echo "Hello World"   PRINT "Hello, world!"​   #include int main(void) {puts("Hello, world!");}   #include int main() {std::cout &lt;&lt; "Hello, world!"; return 0;}   using System; class Program {public static void Main(string[] args) {Console.WriteLine("Hello, world!");}}   ? "Hello World"   console.log "Hello, world!"   program HelloWorld; begin Writeln("Hello, world!"); end.   Hello World!   import javax.swing.JFrame; import javax.swing.JLabel; public class HelloWorld {public static void main(String[] args) {JFrame frame = new JFrame(); frame.setTitle("Hi!"); frame.add(new JLabel("Hello, world!")); frame.pack(); frame.setLocationRelativeTo(null); frame.setVisible(true);}}   document.write("Hello, world!");   $("body").append("Hello world!");   println("Hello world!")   print [Hello, world!]   disp("Hello, world!")   #import #import int main(void) {NSLog(@"Hello, world!"); return 0;}   program HelloWorld; begin WriteLn("Hello, world!"); end.   print "Hello, world!";   void setup() {println("Hello, world!");}   print "Hello, world!"   cat("Hello, world!")   puts "Hello, world!"   println("Hello, world!")   Module Module1 Sub Main() Console.WriteLine("Hello, world!") End Sub End Module   Hello World   echo "Hello World"   PRINT "Hello, world!"​   #include int main(void) {puts("Hello, world!");}   #include int main() {std::cout &lt;&lt; "Hello, world!"; return 0;}   using System; class Program {public static void Main(string[] args) {Console.WriteLine("Hello, world!");}}   ? "Hello World"   console.log "Hello, world!"   program HelloWorld; begin Writeln("Hello, world!"); end.   Hello World!   import javax.swing.JFrame; import javax.swing.JLabel; public class HelloWorld {public static void main(String[] args) {JFrame frame = new JFrame(); frame.setTitle("Hi!"); frame.add(new JLabel("Hello, world!")); frame.pack(); frame.setLocationRelativeTo(null); frame.setVisible(true);}}   document.write("Hello, world!");   $("body").append("Hello world!");   println("Hello world!")   print [Hello, world!]   disp("Hello, world!")   #import #import int main(void) {NSLog(@"Hello, world!"); return 0;}   program HelloWorld; begin WriteLn("Hello, world!"); end.   print "Hello, world!";   void setup() {println("Hello, world!");}   print "Hello, world!"   cat("Hello, world!")   puts "Hello, world!"   println("Hello, world!")   Module Module1 Sub Main() Console.WriteLine("Hello, world!") End Sub End Module   Hello World   echo "Hello World"   PRINT "Hello, world!"​   #include int main(void) {puts("Hello, world!");}   #include int main() {std::cout &lt;&lt; "Hello, world!"; return 0;}   using System; class Program {public static void Main(string[] args) {Console.WriteLine("Hello, world!");}}   ? "Hello World"   console.log "Hello, world!"   program HelloWorld; begin Writeln("Hello, world!"); end.   Hello World!   import javax.swing.JFrame; import javax.swing.JLabel; public class HelloWorld {public static void main(String[] args) {JFrame frame = new JFrame(); frame.setTitle("Hi!"); frame.add(new JLabel("Hello, world!")); frame.pack(); frame.setLocationRelativeTo(null); frame.setVisible(true);}}   document.write("Hello, world!");   $("body").append("Hello world!");   println("Hello world!")   print [Hello, world!]   disp("Hello, world!")   #import #import int main(void) {NSLog(@"Hello, world!"); return 0;}   program HelloWorld; begin WriteLn("Hello, world!"); end.   print "Hello, world!";   void setup() {println("Hello, world!");}   print "Hello, world!"   cat("Hello, world!")   puts "Hello, world!"   println("Hello, world!")   Module Module1 Sub Main() Console.WriteLine("Hello, world!") End Sub End Module   Hello World   echo "Hello World"   PRINT "Hello, world!"​   #include int main(void) {puts("Hello, world!");}   #include int main() {std::cout &lt;&lt; "Hello, world!"; return 0;}   using System; class Program {public static void Main(string[] args) {Console.WriteLine("Hello, world!");}}   ? "Hello World"   console.log "Hello, world!"   program HelloWorld; begin Writeln("Hello, world!"); end.   Hello World!   import javax.swing.JFrame; import javax.swing.JLabel; public class HelloWorld {public static void main(String[] args) {JFrame frame = new JFrame(); frame.setTitle("Hi!"); frame.add(new JLabel("Hello, world!")); frame.pack(); frame.setLocationRelativeTo(null); frame.setVisible(true);}}   document.write("Hello, world!");   $("body").append("Hello world!");   println("Hello world!")   print [Hello, world!]   disp("Hello, world!")   #import #import int main(void) {NSLog(@"Hello, world!"); return 0;}   program HelloWorld; begin WriteLn("Hello, world!"); end.   print "Hello, world!";   void setup() {println("Hello, world!");}   print "Hello, world!"   cat("Hello, world!")   puts "Hello, world!"   println("Hello, world!")   Module Module1 Sub Main() Console.WriteLine("Hello, world!") End Sub End Module   Hello World   echo "Hello World"   PRINT "Hello, world!"​   #include int main(void) {puts("Hello, world!");}   #include int main() {std::cout &lt;&lt; "Hello, world!"; return 0;}   using System; class Program {public static void Main(string[] args) {Console.WriteLine("Hello, world!");}}   ? "Hello World"   console.log "Hello, world!"   program HelloWorld; begin Writeln("Hello, world!"); end.   Hello World!   import javax.swing.JFrame; import javax.swing.JLabel; public class HelloWorld {public static void main(String[] args) {JFrame frame = new JFrame(); frame.setTitle("Hi!"); frame.add(new JLabel("Hello, world!")); frame.pack(); frame.setLocationRelativeTo(null); frame.setVisible(true);}}   document.write("Hello, world!");   $("body").append("Hello world!");   println("Hello world!")   print [Hello, world!]   disp("Hello, world!")   #import #import int main(void) {NSLog(@"Hello, world!"); return 0;}   program HelloWorld; begin WriteLn("Hello, world!"); end.   print "Hello, world!";   void setup() {println("Hello, world!");}   print "Hello, world!"   cat("Hello, world!")   puts "Hello, world!"   println("Hello, world!")   Module Module1 Sub Main() Console.WriteLine("Hello, world!") End Sub End Module   Hello World   echo "Hello World"   PRINT "Hello, world!"​   #include int main(void) {puts("Hello, world!");}   #include int main() {std::cout &lt;&lt; "Hello, world!"; return 0;}   using System; class Program {public static void Main(string[] args) {Console.WriteLine("Hello, world!");}}   ? "Hello World"   console.log "Hello, world!"   program HelloWorld; begin Writeln("Hello, world!"); end.   Hello World!   import javax.swing.JFrame; import javax.swing.JLabel; public class HelloWorld {public static void main(String[] args) {JFrame frame = new JFrame(); frame.setTitle("Hi!"); frame.add(new JLabel("Hello, world!")); frame.pack(); frame.setLocationRelativeTo(null); frame.setVisible(true);}}   document.write("Hello, world!");   $("body").append("Hello world!");   println("Hello world!")   print [Hello, world!]   disp("Hello, world!")   #import #import int main(void) {NSLog(@"Hello, world!"); return 0;}   program HelloWorld; begin WriteLn("Hello, world!"); end.   print "Hello, world!";   void setup() {println("Hello, world!");}   print "Hello, world!"   cat("Hello, world!")   puts "Hello, world!"   println("Hello, world!")   Module Module1 Sub Main() Console.WriteLine("Hello, world!") End Sub End Module   Hello World   echo "Hello World"   PRINT "Hello, world!"​   #include int main(void) {puts("Hello, world!");}   #include int main() {std::cout &lt;&lt; "Hello, world!"; return 0;}   using System; class Program {public static void Main(string[] args) {Console.WriteLine("Hello, world!");}}   ? "Hello World"   console.log "Hello, world!"   program HelloWorld; begin Writeln("Hello, world!"); end.   Hello World!   import javax.swing.JFrame; import javax.swing.JLabel; public class HelloWorld {public static void main(String[] args) {JFrame frame = new JFrame(); frame.setTitle("Hi!"); frame.add(new JLabel("Hello, world!")); frame.pack(); frame.setLocationRelativeTo(null); frame.setVisible(true);}}   document.write("Hello, world!");   $("body").append("Hello world!");   println("Hello world!")   print [Hello, world!]   disp("Hello, world!")   #import #import int main(void) {NSLog(@"Hello, world!"); return 0;}   program HelloWorld; begin WriteLn("Hello, world!"); end.   print "Hello, world!";   void setup() {println("Hello, world!");}   print "Hello, world!"   cat("Hello, world!")   puts "Hello, world!"   println("Hello, world!")   Module Module1 Sub Main() Console.WriteLine("Hello, world!") End Sub End Module   Hello ;'
 }
