@@ -104,10 +104,6 @@ function getFormattedTooltip(data) {
 		if (!events.get(this.key).length) {
 			return 'No Events';
 		}
-		let str = '<b>Events</b>' + '<br>';
-		events.get(this.key)
-			.forEach((event) => str += 'Duration: <b>' + event.duration + 'h</b><br>Message:<b>' + event.message +
-									   '</b><br>');
-		return str;
+		return events.get(this.key).reduce((a, e) => a + e.duration, 0) + 'h';
 	};
 }
