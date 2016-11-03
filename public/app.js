@@ -76,20 +76,25 @@ function bindSubmitHandler() {
 	});
 }
 
-$(function() {
+function fetchCurrentUser() {
 	API.me().then(user => {
 		currentUser = user;
 		if (user) {
 			$(".greeting").text("Привет, " + user.name + "!");
 		}
+	}, err => {
+		console.log("api error:", err);
 	});
+}
 
+$(function() {
 	initDurationMenu();
 	bindSubmitHandler();
-
 	toggleButtonState();
 
 	$("#message")
 		.keyup(toggleButtonState)
 		.change(toggleButtonState);
+
+	fetchCurrentUser();
 });
