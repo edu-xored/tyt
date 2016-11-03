@@ -1,43 +1,45 @@
-<!doctype html>
-<html lang="en">
+<html>
 <head>
-	<title>Track Your Time</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
-	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
-	<link rel="stylesheet" href="/public/app.css"/>
-	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+	<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+	<link rel="stylesheet" href="public/app.css"/>
+	<script src="http://code.jquery.com/jquery-3.1.1.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="/public/client.js"></script>
-	<script src="/public/app.js"></script>
+	<script src="public/app.js"></script>
 </head>
-<body>
+<body class="body-login">
+<div class="hello-world"></div>
 <div class="container">
-	<p class="greeting">Привет!</p>
-	<a href="/statistics.html" class="pull-right">Статистика</a>
-	<form id="form">
-		<div class="form-group">
-			<textarea class="form-control" id="message" value="" placeholder="Что ты сегодня сделал?"></textarea>
-		</div>
-		<div class="form-group">
-			<label for="duration-dropdown">Затраченное время:</label>
-			<div class="dropdown" id="duration-dropdown">
-				<button class="btn btn-default dropdown-toggle" type="button" id="durationMenu" data-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="true">
-					<span id="duration" data-value="1">1 час</span>
-					<span class="caret"></span>
-				</button>
-				<ul class="dropdown-menu" id="duration-menu" aria-labelledby="durationMenu">
-				</ul>
+	<div class="text-center"><img class="github-login" src="public/img/logo-git-edu.svg"></div>
+	<h1 class="app-title text-center login-header">Track Your Time</h1>
+
+		<p class="greeting">Привет!</p>
+		<form id="form">
+			<div class="form-group">
+				<textarea class="form-control" id="message" value="" placeholder="Что ты сегодня сделал?"></textarea>
 			</div>
-		</div>
-		<div class="form-group">
-			<button class="btn btn-default btn-lg btn-primary" id="btn-send" type="submit">Отправить</button>
-		</div>
-	</form>
+			<div class="form-group">
+				<label for="duration-dropdown">Затраченное время:</label>
+				<div class="dropdown" id="duration-dropdown">
+					<button class="btn btn-default dropdown-toggle" type="button" id="durationMenu" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="true">
+						<span id="duration" data-value="1">1 час</span>
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" id="duration-menu" aria-labelledby="durationMenu">
+					</ul>
+				</div>
+			</div>
+			<div class="form-group">
+				<button class="btn btn-default btn-lg btn-primary" id="btn-send" type="submit">Отправить</button>
+			</div>
+		<a href="/statistics" id="edu-stat-link">Статистика</a>
+
+	<div class="edu-copyright"> Xored Educational Program • 2016–2017 </div>
 </div>
 </body>
 </html>
