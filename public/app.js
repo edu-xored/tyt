@@ -76,11 +76,16 @@ function bindSubmitHandler() {
 	});
 }
 
+function extractFirstName(fullName) {
+	const a = (fullName || '').split(/\s/g).map(t => t.trim()).filter(t => !!t);
+	return a.length >= 2 ? a[1] : fullName;
+}
+
 function fetchCurrentUser() {
 	API.me().then(user => {
 		currentUser = user;
 		if (user) {
-			$(".greeting").text("Привет, " + user.name + "!");
+			$(".greeting").text("Привет, " + extractFirstName(user.name) + "!");
 		}
 	}, err => {
 		console.log("api error:", err);
