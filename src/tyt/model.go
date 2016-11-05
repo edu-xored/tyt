@@ -51,9 +51,9 @@ type User struct {
 	Comment     string `json:"comment,omitempty"`
 	AvatarURL   string `json:"avatar_url,omitempty"`
 	GravatarID  string `json:"gravatar_id,omitempty"`
-	Course      int32  `json:"course"`
+	Course      int    `json:"course"`
 	Faculty     string `json:"faculty,omitempty"`
-	Group       int32  `json:"group,omitempty"`
+	Group       int    `json:"group,omitempty"`
 	Role        string `json:"role,omitempty"` // student, mentor
 	Github      string `json:"github,omitempty"`
 	Skype       string `json:"skype,omitempty"`
@@ -112,7 +112,7 @@ type Event struct {
 	Start   time.Time `json:"start"`
 	End     time.Time `json:"end"`
 	// allow to track just time spent in hours
-	Duration    int32  `json:"duration"`
+	Duration    int    `json:"duration"`
 	SpectacleID string `json:"spectacle_id,omitempty"`
 }
 
@@ -125,10 +125,12 @@ func (e *Event) GetResourceInfo() ResourceInfo {
 
 type Spectacle struct {
 	Entity
-	Type  string    `json:"type"`
-	Title string    `json:"title"`
-	Start time.Time `json:"start"`
-	End   time.Time `json:"end"`
+	Type          string    `json:"type"`
+	Title         string    `json:"title"`
+	Start         time.Time `json:"start"`
+	Duration      int       `json:"duration"` // in hours
+	PresenterID   string    `json:"presenter_id"`
+	PresenterName string    `json:"presenter_name"`
 }
 
 func (s *Spectacle) GetResourceInfo() ResourceInfo {
