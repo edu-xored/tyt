@@ -9,12 +9,12 @@ import (
 )
 
 func findUserByLogin(db *buntdb.DB, login string) (*User, error) {
-	key := fmt.Sprintf("user:%s", strings.ToLower(login))
+	key := makeLoginKey(login)
 	user := &User{}
 	err := db.View(func(tx *buntdb.Tx) error {
 		id, err := tx.Get(key)
 		if err == nil {
-			val, err := tx.Get(fmt.Sprintf("user/%s", id))
+			val, err := tx.Get(makeResourceKey("user", id))
 			if err != nil {
 				return err
 			}
@@ -96,8 +96,12 @@ func insert(db *buntdb.DB, entity IEntity) error {
 
 func onUserInserted(tx *buntdb.Tx, user *User) error {
 	// map login to userID
-	key := fmt.Sprintf("user:%s", strings.ToLower(user.Login))
+	key := makeLoginKey(user.Login)
 	_, _, err := tx.Set(key, user.ID, nil)
 	fmt.Printf("map user %s = %s\n", user.Login, user.ID)
 	return err
+}
+
+func makeLoginKey(login string) string {
+	return fmt.Sprintf("user:%s", strings.ToLower(login))
 }
