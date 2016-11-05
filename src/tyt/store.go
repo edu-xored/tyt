@@ -8,6 +8,29 @@ import (
 	"github.com/tidwall/buntdb"
 )
 
+func getString(db *buntdb.DB, key string) (string, error) {
+	var result string
+	err := db.View(func(tx *buntdb.Tx) error {
+		val, err := tx.Get(key)
+		if err != nil {
+			return err
+		}
+		result = val
+		return nil
+	})
+	return result, err
+}
+
+func getObject(db *buntdb.DB, key string, out interface{}) error {
+	return db.View(func(tx *buntdb.Tx) error {
+		val, err := tx.Get(key)
+		if err != nil {
+			return err
+		}
+		return json.Unmarshal([]byte(val), out)
+	})
+}
+
 func findUserByLogin(db *buntdb.DB, login string) (*User, error) {
 	key := makeLoginKey(login)
 	user := &User{}
@@ -90,6 +113,11 @@ func insert(db *buntdb.DB, entity IEntity) error {
 			onUserInserted(tx, user)
 		}
 
+		spec, ok := entity.(*Spectacle)
+		if ok {
+			onSpectacleInserted(tx, spec)
+		}
+
 		return err
 	})
 }
@@ -102,6 +130,16 @@ func onUserInserted(tx *buntdb.Tx, user *User) error {
 	return err
 }
 
+func onSpectacleInserted(tx *buntdb.Tx, spec *Spectacle) error {
+	key := makeSpectacleKey(spec.Title)
+	_, _, err := tx.Set(key, spec.ID, nil)
+	return err
+}
+
 func makeLoginKey(login string) string {
 	return fmt.Sprintf("user:%s", strings.ToLower(login))
+}
+
+func makeSpectacleKey(title string) string {
+	return fmt.Sprintf("spectacle:%s", title)
 }

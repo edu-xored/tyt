@@ -21,14 +21,15 @@ func main() {
 		panic(fmt.Errorf("Fatal error config file: %s \n", err))
 	}
 
-	loadUsers()
-
 	// Open the data.db file. It will be created if it doesn't exist.
 	db, err := buntdb.Open("data.db")
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer db.Close()
+
+	loadUsers()
+	loadLectures(db)
 
 	getCurrentUser = makeGetCurrentUser(db)
 
