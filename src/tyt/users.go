@@ -12,9 +12,9 @@ type UserInfo struct {
 	Email       string `json:"email,omitempty"`
 	Github      string `json:"github,omitempty"`
 	Role        string `json:"role,omitempty"`
-	Course      int32  `json:"course"`
+	Course      int    `json:"course"`
 	Faculty     string `json:"faculty,omitempty"`
-	Group       int32  `json:"group,omitempty"`
+	Group       int    `json:"group,omitempty"`
 	Description string `json:"description"`
 	Comment     string `json:"comment"`
 }
