@@ -2,8 +2,11 @@ package main
 
 import (
 	"fmt"
+	"strings"
+
 	"github.com/iris-contrib/plugin/oauth"
 	"github.com/kataras/iris"
+	"github.com/markbates/goth"
 	"github.com/spf13/viper"
 	"github.com/tidwall/buntdb"
 )
@@ -27,15 +30,27 @@ func initOAuth(db *buntdb.DB) {
 	// you can do redirect to the authenticated url or whatever you want to do
 	authentication.Success(func(ctx *iris.Context) {
 		githubUser := authentication.User(ctx) // returns the goth.User
-		//json, err := json.MarshalIndent(githubUser, "", "  ")
-		//if err == nil {
-		//	fmt.Printf("github user: %s\n", string(json))
-		//}
+		login := strings.ToLower(githubUser.NickName)
 
 		// now find the user in our database
-		user, err := findUserByLogin(db, githubUser.NickName)
-		if user == nil {
+		user, err := findUserByLogin(db, login)
+		if user != nil {
+			setUser(ctx, user)
+			ctx.Redirect("/index.html")
+			return
+		}
+
+		// try to auto register user if he/she is in list
+		userInfo, ok := users[login]
+		if !ok {
 			ctx.Error(fmt.Sprintf("user not found: %s", err.Error()), iris.StatusUnauthorized)
+			return
+		}
+
+		user = makeUser(githubUser, userInfo)
+		err = insert(db, user)
+		if err != nil {
+			ctx.Error(err.Error(), iris.StatusInternalServerError)
 			return
 		}
 
@@ -47,4 +62,27 @@ func initOAuth(db *buntdb.DB) {
 	})
 
 	iris.Plugins.Add(authentication)
+}
+
+func makeUser(gu goth.User, info UserInfo) *User {
+	user := &User{
+		Name:        info.Name,
+		Email:       info.Email,
+		Github:      info.Github,
+		Role:        info.Role,
+		Course:      info.Course,
+		Faculty:     info.Faculty,
+		Group:       info.Group,
+		Description: info.Description,
+		Comment:     info.Comment,
+		// from github
+		Login:     strings.ToLower(gu.NickName),
+		AvatarURL: gu.AvatarURL,
+		Location:  gu.Location,
+	}
+	if len(user.Description) == 0 && len(gu.Description) > 0 {
+		user.Description = gu.Description
+	}
+	user.Created("robot")
+	return user
 }

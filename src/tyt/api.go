@@ -3,9 +3,9 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+
 	"github.com/kataras/iris"
 	"github.com/tidwall/buntdb"
-	"strings"
 )
 
 const contentJSON = "application/json"
@@ -41,10 +41,7 @@ func (api API) makeListHandler() iris.HandlerFunc {
 			comma := false
 			count := 0
 			str := "["
-			err := tx.Ascend("", func(key, val string) bool {
-				if !strings.HasPrefix(key, api.resource+"/") {
-					return true
-				}
+			err := scan(tx, api.resource, func(key, val string) bool {
 				if comma {
 					str += ","
 				}
@@ -78,7 +75,7 @@ func (api API) makeListHandler() iris.HandlerFunc {
 
 func (api API) makeResourceKey(ctx *iris.Context) string {
 	id := ctx.Param("id")
-	return fmt.Sprintf("%s/%s", api.resource, id)
+	return makeResourceKey(api.resource, id)
 }
 
 func (api API) makeGetHandler() iris.HandlerFunc {
@@ -134,7 +131,7 @@ func (api API) makeCreateHandler() iris.HandlerFunc {
 				return err
 			}
 
-			key := fmt.Sprintf("%s/%s", api.resource, resource.GetID())
+			key := makeResourceKey(api.resource, resource.GetID())
 			_, _, err = tx.Set(key, string(bytes), nil)
 
 			if api.onCreate != nil {

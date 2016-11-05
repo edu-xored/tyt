@@ -4,8 +4,6 @@ import (
 	"fmt"
 	"log"
 
-	"strings"
-
 	"github.com/iris-contrib/middleware/cors"
 	"github.com/iris-contrib/middleware/logger"
 	"github.com/kataras/iris"
@@ -22,6 +20,8 @@ func main() {
 	if err != nil {
 		panic(fmt.Errorf("Fatal error config file: %s \n", err))
 	}
+
+	loadUsers()
 
 	// Open the data.db file. It will be created if it doesn't exist.
 	db, err := buntdb.Open("data.db")
@@ -65,12 +65,7 @@ func installAPI(db *buntdb.DB) {
 		collection: "users",
 		factory:    func() IEntity { return &User{} },
 		onCreate: func(tx *buntdb.Tx, r IEntity) error {
-			user := r.(*User)
-			// map login to userID
-			key := fmt.Sprintf("user:%s", strings.ToLower(user.Login))
-			_, _, err := tx.Set(key, user.ID, nil)
-			fmt.Printf("map user %s = %s", user.Login, user.ID)
-			return err
+			return onUserInserted(tx, r.(*User))
 		},
 	}.install()
 

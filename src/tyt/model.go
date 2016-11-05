@@ -6,10 +6,16 @@ import (
 	"github.com/satori/go.uuid"
 )
 
+type ResourceInfo struct {
+	Type       string
+	Collection string
+}
+
 type IEntity interface {
 	GetID() string
 	Created(by string)
 	Updated(by string)
+	GetResourceInfo() ResourceInfo
 }
 
 type Entity struct {
@@ -54,6 +60,14 @@ type User struct {
 	Twitter     string `json:"twitter,omitempty"`
 	Telegram    string `json:"telegram,omitempty"`
 	WebURL      string `json:"web_url,omitempty"` // url to user website
+	Location    string `json:"location,omitempty"`
+}
+
+func (u *User) GetResourceInfo() ResourceInfo {
+	return ResourceInfo{
+		Type:       "user",
+		Collection: "users",
+	}
 }
 
 type Team struct {
@@ -67,6 +81,13 @@ type Team struct {
 	Members        []string `json:"members,omitempty"`  // member ids
 }
 
+func (t *Team) GetResourceInfo() ResourceInfo {
+	return ResourceInfo{
+		Type:       "team",
+		Collection: "teams",
+	}
+}
+
 type Organization struct {
 	Entity
 	Name        string   `json:"name"`
@@ -74,6 +95,13 @@ type Organization struct {
 	Slug        string   `json:"slug,omitempty"`
 	Github      string   `json:"github,omitempty"` // organization github URL
 	Teams       []string `json:"teams,omitempty"`  // team ids
+}
+
+func (o *Organization) GetResourceInfo() ResourceInfo {
+	return ResourceInfo{
+		Type:       "org",
+		Collection: "orgs",
+	}
 }
 
 type Event struct {
@@ -88,10 +116,24 @@ type Event struct {
 	SpectacleID string `json:"spectacle_id,omitempty"`
 }
 
+func (e *Event) GetResourceInfo() ResourceInfo {
+	return ResourceInfo{
+		Type:       "event",
+		Collection: "events",
+	}
+}
+
 type Spectacle struct {
 	Entity
 	Type  string    `json:"type"`
 	Title string    `json:"title"`
 	Start time.Time `json:"start"`
 	End   time.Time `json:"end"`
+}
+
+func (s *Spectacle) GetResourceInfo() ResourceInfo {
+	return ResourceInfo{
+		Type:       "spectacle",
+		Collection: "spectacles",
+	}
 }
