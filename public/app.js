@@ -38,6 +38,7 @@ function isValidEvent(event) {
 }
 
 var currentUser = {};
+var currentLecture;
 
 function makeEvent() {
 	return {
@@ -92,6 +93,64 @@ function fetchCurrentUser() {
 	});
 }
 
+function initLectureUI() {
+	moment.locale('ru');
+	const now = moment();
+	API.spectacles.getList().then(allLectures => {
+		allLectures.sort((a, b) => new Date(a.start).getTime() - new Date(b.start).getTime());
+		const lectures = allLectures.filter(t => moment(new Date(t.start)).add(t.duration, 'hours').isAfter(now));
+		const lecture = lectures[0];
+		if (lecture) {
+			$('.lecture-info').show();
+
+			const start = moment(new Date(lecture.start));
+			const isCurrent = start.isSameOrBefore(now);
+
+			$('.lecture-label').text(isCurrent ? 'Текущий доклад' : 'Следующий доклад');
+			$('.lecture-title').text(lecture.title);
+
+			const btnDate = $('.btn-lecture-date').text(start.format('DD MMMM, [18:10]'));
+
+			if (isCurrent) {
+				currentLecture = lecture;
+				btnDate.hide();
+				initHereButton();
+			} else {
+				btnDate.show();
+				$('.btn-here').hide();
+			}
+		} else {
+			$('.lecture-info').hide();
+		}
+	});
+}
+
+function initHereButton() {
+	// hide here button if the user is already reported presense
+	API.events.getList().then(events => {
+		const alreadyReported = events.some(e => e.type === 'presence' && e.spectacle_id === currentLecture.id);
+		if (alreadyReported) {
+			$('.btn-here').hide();
+		} else {
+			$('.btn-here').show();
+		}
+	});
+
+	$('.btn-here').click(() => {
+		if (!currentUser || !currentLecture) {
+			return;
+		}
+		API.iamhere({
+			spectacle_id: currentLecture.id,
+		}).then(() => {
+			$('.btn-here').hide();
+		}, err => {
+			// TODO use sweet alert
+			alert(err);
+		});
+	});
+}
+
 $(function() {
 	initDurationMenu();
 	bindSubmitHandler();
@@ -102,4 +161,5 @@ $(function() {
 		.change(toggleButtonState);
 
 	fetchCurrentUser();
+	initLectureUI();
 });

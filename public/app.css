@@ -5,12 +5,14 @@ form {
 }
 
 label {
-	font-size: 2em;
+	display: block;
+	font-size: 14px;
 	font-weight: 400;
 	color:#fff;
+	text-align: center;
 }
 
-.container{
+.container {
 	box-shadow: 0 5px 20px #000;
 	max-width: 440px;
 	border-radius:8px;
@@ -20,22 +22,23 @@ label {
 	border-color: #fff;
 	background-color: rgba(0,0,0, 0.5)
 }
+
 .edu-copyright {
 		color:#888;
 		text-align:center;
 		padding: 0;
-		margin: 0 0 20px 0;
+		margin: 20px 0;
 		position: relative;
 }
 
 #edu-stat-link {
-
 }
 
 .greeting {
-	margin: 50px auto;
+	margin: 20px auto;
 	font-size: 2em;
 	color:#fff;
+	text-align: center;
 }
 
 #message {
@@ -43,12 +46,61 @@ label {
 	resize: vertical;
 }
 
-
 .form-control {
 	margin:0;
 	background-color: transparent;
 	border-style: solid;
 	border-color: #fff;
+}
+
+#duration-dropdown {
+	display: block;
+	text-align: center;
+}
+
+#duration-dropdown .dropdown-menu {
+	left: 30%;
+}
+
+.lecture-info {
+	display: none;
+}
+
+.lecture-label {
+	color: white;
+	font-size: 14px;
+	margin: 0.5em 0;
+	text-align: center;
+}
+
+.lecture-title {
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	margin: 0.5em 0;
+	text-align: center;
+}
+
+.btn.btn-lecture-date {
+	display: block;
+	width: 100%;
+	border: 1px solid #E02926;
+	background: transparent;
+	color: white;
+	font-size: 14px;
+	font-weight: bold;
+	cursor: default;
+	padding: 0.75em 0;
+}
+
+.btn.btn-here {
+	display: block;
+	width: 100%;
+	background: olivedrab;
+	color: white;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 0.75em 0;
 }
 
 .form-login {
@@ -68,6 +120,7 @@ label {
 	margin:0 0 20px 0;
 	color:#fff;
 }
+
 .body-login {
 	font-family: "PT Sans", sans-serif;
 	background-color: #fff;

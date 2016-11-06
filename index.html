@@ -5,6 +5,8 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="/public/app.css"/>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/locale/ru.js"></script>
 	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="/public/client.js"></script>
@@ -17,12 +19,13 @@
 	<h1 class="app-title text-center login-header">Track Your Time</h1>
 
 		<p class="greeting">Привет!</p>
+
 		<form id="form">
 			<div class="form-group">
 				<textarea class="form-control" id="message" value="" placeholder="Что ты сегодня сделал?"></textarea>
 			</div>
 			<div class="form-group">
-				<label for="duration-dropdown">Затраченное время:</label>
+				<label for="duration-dropdown">Затраченное время</label>
 				<div class="dropdown" id="duration-dropdown">
 					<button class="btn btn-default dropdown-toggle" type="button" id="durationMenu" data-toggle="dropdown"
 							aria-haspopup="true" aria-expanded="true">
@@ -36,7 +39,15 @@
 			<div class="form-group">
 				<button class="btn btn-default btn-lg btn-primary" id="btn-send" type="submit">Отправить</button>
 			</div>
+		</form>
 		<a href="/statistics.html" id="edu-stat-link">Статистика</a>
+
+		<div class="lecture-info">
+			<div class="lecture-label">Следующий доклад</div>
+			<div class="lecture-title">Тестирование</div>
+			<button class="btn btn-lecture btn-lecture-date">8 Ноября, 18:10</button>
+			<button class="btn btn-lecture btn-here">Я здесь!</button>
+		</div>
 
 	<div class="edu-copyright"> Xored Educational Program • 2016–2017 </div>
 </div>

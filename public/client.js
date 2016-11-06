@@ -86,6 +86,13 @@ const API = {
 			headers: makeHeaders(),
 		}).then(toJSON);
 	},
+	iamhere: function(payload) {
+		return fetch(`${BASE}/iamhere`, {
+			credentials: "same-origin",
+			method: 'POST',
+			body: JSON.stringify(payload),
+		}).then(toJSON);
+	},
 	users: makeAPI({
 		resource: 'user',
 		collection: 'users',
