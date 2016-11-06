@@ -1,7 +1,7 @@
 API.events.getList()
 	.then(events => {
 		return API.users.getList().then(users => ({
-			events,
+			events: events.filter(e => e.type === 'status'),
 			users
 		}));
 	})
