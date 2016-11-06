@@ -41,7 +41,7 @@ func loadLectures(db *buntdb.DB) {
 }
 
 func initLecture(db *buntdb.DB, lec lecture) error {
-	start, err := time.Parse("2006-01-02 15:04", lec.Start)
+	start, err := time.ParseInLocation("2006-01-02 15:04", lec.Start, time.Local)
 	if err != nil {
 		return err
 	}
@@ -57,7 +57,7 @@ func initLecture(db *buntdb.DB, lec lecture) error {
 		Type:          "lecture",
 		Title:         lec.Title,
 		PresenterName: lec.Presenter,
-		Start:         start,
+		Start:         start.UTC(),
 		Duration:      1,
 	}
 	spec.Created("robot")
