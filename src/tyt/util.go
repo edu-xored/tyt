@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/kataras/iris"
 	"github.com/tidwall/buntdb"
 )
@@ -26,7 +27,7 @@ func makeGetCurrentUser(db *buntdb.DB) func(ctx *iris.Context) *User {
 func getUserID(ctx *iris.Context) string {
 	val := ctx.Session().Get(keyUserID)
 	if val != nil {
-		fmt.Printf("user_id from session: %v", val)
+		fmt.Printf("user_id from session: %v\n", val)
 		s, ok := val.(string)
 		if ok && len(s) > 0 {
 			return s
@@ -35,7 +36,7 @@ func getUserID(ctx *iris.Context) string {
 
 	val = ctx.Get(keyUserID)
 	if val != nil {
-		fmt.Printf("user_id from request context: %v", val)
+		fmt.Printf("user_id from request context: %v\n", val)
 		s, ok := val.(string)
 		if ok && len(s) > 0 {
 			return s
@@ -44,7 +45,7 @@ func getUserID(ctx *iris.Context) string {
 
 	s := ctx.GetCookie(keyUserID)
 	if len(s) > 0 {
-		fmt.Printf("user_id from cookie: %v", val)
+		fmt.Printf("user_id from cookie: %v\n", val)
 		return s
 	}
 
