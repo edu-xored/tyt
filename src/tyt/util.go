@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"net"
 
 	"github.com/kataras/iris"
 	"github.com/tidwall/buntdb"
@@ -68,4 +69,15 @@ func sendError(ctx *iris.Context, err error) {
 	fmt.Printf("error: %v", err)
 	// TODO classify errors
 	ctx.Error(err.Error(), 404)
+}
+
+func realIP(ctx *iris.Context) net.IP {
+	ip := ctx.RemoteIP()
+	fmt.Printf("RemoteIP: %s\n", ip.String())
+	b := ctx.Request.Header.Peek("X-Real-IP")
+	if b != nil && len(b) > 0 {
+		fmt.Printf("X-Real-IP: %s\n", string(b))
+		return net.ParseIP(string(b))
+	}
+	return ip
 }

@@ -17,7 +17,11 @@ func initPresenceAPI(db *buntdb.DB) {
 			return
 		}
 
-		// TODO block by X-Real-IP
+		// IP filter
+		if !isWhiteIP(realIP(ctx)) {
+			ctx.EmitError(iris.StatusUnauthorized)
+			return
+		}
 
 		input := &struct {
 			SpectacleID string `json:"spectacle_id"`
