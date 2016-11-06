@@ -102,5 +102,7 @@ func installAPI(db *buntdb.DB) {
 		factory:    func() IEntity { return &Spectacle{} },
 	}.install()
 
+	initPresenceAPI(db)
+
 	// TODO api to change user password
 }

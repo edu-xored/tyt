@@ -104,6 +104,11 @@ func (o *Organization) GetResourceInfo() ResourceInfo {
 	}
 }
 
+const (
+	EventStatus   = "status"
+	EventPresence = "presence"
+)
+
 type Event struct {
 	Entity
 	UserID  string    `json:"user_id"`
